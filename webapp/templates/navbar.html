@@ -4,8 +4,15 @@
     <span><a href="{% url 'public:contact' %}">Contact</a></span>
     <span style="float:right;">
         {% if user.is_authenticated %}
+            <script>
+                console.log("JDJDJD");
+            </script>
             {% url 'accounts:profile' as profile_url %}
             <span> Welcome, {% if request.path == profile_url%}{{ user.username }}{%else%}<a  href="{{profile_url}}">{{user.username}}</a>{%endif%} </span>
+            <script>
+                console.log(profile_url);
+                console.log("JDJDJD");
+            </script>
 
         <span>
             <form method="post" action="{% url 'accounts:logout' %}">
