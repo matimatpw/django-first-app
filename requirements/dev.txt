@@ -1,0 +1,4 @@
+# Everything the developer need in addition to the production requrements
+-r prod.txt
+
+mypy==1.8.0

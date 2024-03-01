@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} profile {% endblock%}
+
+{% block content %}
+
+<h1>Profile</h1>
+
+<p>Username: {{ user.username }}</p>
+<p> Fullname-> {{user.get_full_name}} </p>
+
+{% with profile=user.profile %}
+    <p> Bio: {{ profile.bio }} </p>
+    <div>
+        {%with website=profile.website|default:""%}
+        <a href="{{website}}">Click for free bitcoin!</a>
+        {%endwith%}
+    </div>
+    <div>
+        Interests:
+        {%for interest in profile.interests.all %}
+            <span>{{ interest.name }} {%if not forloop.last%},{%endif%}</span>
+        {% endfor %}
+    </div>
+    <p> Location: {{ profile.location }} </p>
+{% endwith %}
+
+{% if user.is_authenticated %}
+    <a>Edit Profile</a>
+{% endif %}
+
+{% endblock%}
