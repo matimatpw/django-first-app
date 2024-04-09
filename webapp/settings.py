@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-pb-da!8q6hd5lv)&fpdv2vb(j683hlwl3ymrea&)(tomlv3wt#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webapp.apps.accounts',
+    'webapp.apps.contact',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +78,8 @@ POSTGRES_HOST = os.environ.get('POSTGRES_HOST', default="")
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
         'NAME': POSTGRES_DB,
+        'ENGINE': 'django.db.backends.postgresql',
         'USER': POSTGRES_USER,
         'PASSWORD': POSTGRES_PASSWORD,
         'HOST': POSTGRES_HOST,
@@ -131,3 +132,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL ="accounts:login"
 LOGIN_REDIRECT_URL = 'accounts:profile'
 LOGOUT_REDIRECT_URL = 'public:index'
+
