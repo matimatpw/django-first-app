@@ -18,7 +18,7 @@ RUN pip install -r ./requirements/prod.txt
 
 COPY manage.py ./manage.py
 COPY webapp ./webapp
-
+COPY Makefile ./Makefile
 EXPOSE 8000
 
 
